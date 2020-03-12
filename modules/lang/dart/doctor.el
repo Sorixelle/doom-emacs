@@ -7,6 +7,10 @@
 (unless (executable-find "dart")
   (warn! "Dart isn't on PATH."))
 
+(when (featurep! +flutter)
+  (unless (executable-find "flutter")
+    (warn! "Flutter isn't on PATH.")))
+
 (when (featurep! +lsp)
   (require 'dart-mode)
   (unless (file-readable-p lsp-dart-sdk-dir)
